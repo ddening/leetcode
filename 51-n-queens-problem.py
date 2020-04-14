@@ -4,6 +4,7 @@ class Solution:
     sol = []
 
     def solveNQueens(self, n: int) -> List[List[str]]:
+        self.sol.clear()                                    # just for leetcode
         result = self.nQueen(n, 0)
         return self.sol
 
