@@ -1,14 +1,17 @@
 from typing import List
-import copy
 
 class Solution:
-    def solveNQueens(self, n: int) -> List[List[str]]:
-        result = self.nQueen(n, 0)[1]
-        print(result)
+    sol = []
 
-    def nQueen(self, n: int, row: int, hasSolution: bool = False, queens = dict()):
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        result = self.nQueen(n, 0)
+        return self.sol
+
+    def nQueen(self, n: int, row: int, hasSolution: bool = False, queens=dict()):
         if row == n:
-            return True, self.fillMap(n, queens)
+            return self.fillMap(n, queens)
+
+        result = []
 
         for column in range(n):
             fieldIsSafe = True
@@ -21,10 +24,10 @@ class Solution:
 
             if fieldIsSafe:
                 queens[row] = column
-                hasSolution, result = self.nQueen(n, row + 1, hasSolution, queens.copy())   # copy.deepcopy(queens)
-                if hasSolution is True:
-                    return hasSolution, result
-        return False, [None]
+                result = self.nQueen(n, row + 1, hasSolution, queens.copy())
+                if len(result) != 0 and result not in self.sol:
+                    self.sol.append(result)
+        return result
 
     def fillMap(self, n: int, hashMap: dict) -> List:
         s = []
@@ -41,4 +44,13 @@ class Solution:
         return ["".join(s)]
 
 solution = Solution()
-solution.solveNQueens(4)
+foo = solution.solveNQueens(1)
+print(foo)
+foo = solution.solveNQueens(2)
+print(foo)
+foo = solution.solveNQueens(3)
+print(foo)
+foo = solution.solveNQueens(4)
+print(foo)
+foo = solution.solveNQueens(5)
+print(foo)
