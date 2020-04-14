@@ -3,7 +3,6 @@ import copy
 
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        result = []
         result = self.nQueen(n, 0)[1]
         print(result)
 
