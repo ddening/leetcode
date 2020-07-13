@@ -43,15 +43,3 @@ class Solution:
 
     def listToString(self, s):
         return ["".join(s)]
-
-solution = Solution()
-foo = solution.solveNQueens(1)
-print(foo)
-foo = solution.solveNQueens(2)
-print(foo)
-foo = solution.solveNQueens(3)
-print(foo)
-foo = solution.solveNQueens(4)
-print(foo)
-foo = solution.solveNQueens(5)
-print(foo)
